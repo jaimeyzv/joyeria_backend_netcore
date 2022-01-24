@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joyeria.API", "Joyeria.API\Joyeria.API.csproj", "{66D50B82-6B62-4D5C-A868-9302E757680F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joyeria.Data", "Joyeria.Data\Joyeria.Data.csproj", "{B7045BAC-0C4F-4838-AFDF-CF37E0AE4F85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joyeria.Core", "Joyeria.Core\Joyeria.Core.csproj", "{C75A948E-824A-4A46-A1D8-A77247992AFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joyeria.Services", "Joyeria.Services\Joyeria.Services.csproj", "{A4D8DD93-FAFF-4E0F-A6BD-5FE1D1E6B6CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{66D50B82-6B62-4D5C-A868-9302E757680F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66D50B82-6B62-4D5C-A868-9302E757680F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66D50B82-6B62-4D5C-A868-9302E757680F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7045BAC-0C4F-4838-AFDF-CF37E0AE4F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7045BAC-0C4F-4838-AFDF-CF37E0AE4F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7045BAC-0C4F-4838-AFDF-CF37E0AE4F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7045BAC-0C4F-4838-AFDF-CF37E0AE4F85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C75A948E-824A-4A46-A1D8-A77247992AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C75A948E-824A-4A46-A1D8-A77247992AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C75A948E-824A-4A46-A1D8-A77247992AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C75A948E-824A-4A46-A1D8-A77247992AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4D8DD93-FAFF-4E0F-A6BD-5FE1D1E6B6CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4D8DD93-FAFF-4E0F-A6BD-5FE1D1E6B6CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4D8DD93-FAFF-4E0F-A6BD-5FE1D1E6B6CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4D8DD93-FAFF-4E0F-A6BD-5FE1D1E6B6CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -6,8 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Joyeria.Core\Joyeria.Core.csproj" />
-    <ProjectReference Include="..\Joyeria.Data\Joyeria.Data.csproj" />
-    <ProjectReference Include="..\Joyeria.Services\Joyeria.Services.csproj" />
   </ItemGroup>
 
 </Project>

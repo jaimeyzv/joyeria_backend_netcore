@@ -1,15 +1,12 @@
+using Joyeria.Core.Repositories;
+using Joyeria.Core.Services;
+using Joyeria.Data.Repositories;
+using Joyeria.Services.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Joyeria.API
 {
@@ -27,6 +24,8 @@ namespace Joyeria.API
         {
 
             services.AddControllers();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductService, ProductService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
