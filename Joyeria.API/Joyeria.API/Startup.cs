@@ -1,3 +1,4 @@
+using Joyeria.Core;
 using Joyeria.Core.Repositories;
 using Joyeria.Core.Services;
 using Joyeria.Data;
@@ -26,6 +27,7 @@ namespace Joyeria.API
         {
 
             services.AddControllers();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductService, ProductService>();
