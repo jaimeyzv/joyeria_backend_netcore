@@ -1,9 +1,11 @@
 using Joyeria.Core.Repositories;
 using Joyeria.Core.Services;
+using Joyeria.Data;
 using Joyeria.Data.Repositories;
 using Joyeria.Services.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,7 +27,12 @@ namespace Joyeria.API
 
             services.AddControllers();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICategoryService, CategoryService>();
+
+            services.AddDbContext<JoyeriaDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("JoyeriaDb")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
