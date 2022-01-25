@@ -22,7 +22,8 @@ namespace Joyeria.API.Controllers
         {
             try
             {
-                return Ok();
+                var products = await this._productService.GetProductsAsync();
+                return Ok(products);
             }
             catch (Exception ex)
             {

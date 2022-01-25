@@ -10,11 +10,6 @@ namespace Joyeria.Data.Repositories
     {
         private readonly JoyeriaDbContext _dbContext;
 
-        //private JoyeriaDbContext JoyeriaDbContext
-        //{
-        //    get { return _dbContext as JoyeriaDbContext; }
-        //}
-
         public CategoryRepository(JoyeriaDbContext dbContext)
         {
             this._dbContext = dbContext;

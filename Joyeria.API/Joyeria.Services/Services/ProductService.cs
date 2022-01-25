@@ -1,15 +1,23 @@
-﻿using Joyeria.Core.Repositories;
+﻿using Joyeria.Core;
+using Joyeria.Core.Models;
 using Joyeria.Core.Services;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Joyeria.Services.Services
 {
     public class ProductService : IProductService
     {
-        private readonly IProductRepository _productRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public ProductService(IProductRepository productRepository)
+        public ProductService(IUnitOfWork unitOfWork)
         {
-            _productRepository = productRepository;
+            this._unitOfWork = unitOfWork;
+        }
+
+        public async Task<IEnumerable<Product>> GetProductsAsync()
+        {
+            return await this._unitOfWork.Products.GetProductsAsync();
         }
     }
 }
