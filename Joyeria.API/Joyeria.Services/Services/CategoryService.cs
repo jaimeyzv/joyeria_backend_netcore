@@ -19,5 +19,10 @@ namespace Joyeria.Services.Services
         {
             return await this._unitOfWork.Categories.GetCategoriesAsync();
         }
+
+        public async Task<Category> GetCategoryByIdAsync(int id)
+        {
+            return await _unitOfWork.Categories.GetCategoryByIdAsync(id);
+        }
     }
 }

@@ -7,5 +7,6 @@ namespace Joyeria.Core.Services
     public interface ICategoryService
     {
         Task<IEnumerable<Category>> GetCategoriesAsync();
+        Task<Category> GetCategoryByIdAsync(int id);
     }
 }

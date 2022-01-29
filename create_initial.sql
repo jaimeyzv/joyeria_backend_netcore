@@ -34,26 +34,26 @@ create table Products
 go
 
 -- Initial data for 'Para ellos' category => Category Id = 1
---insert into Products(Name, Description, Stock, Price, Category_id) 
---values ('Llavero San Judas', 'Presentativo para religiosos', 10, 159.99, 1);
---insert into Products(Name, Description, Stock, Price, Category_id) 
---values ('Llavero Señor de los Milagros', 'Presentativo para religiosos', 20, 189.99, 1);
---insert into Products(Name, Description, Stock, Price, Category_id) 
---values ('Llavero Escudo Nacional', 'Presentativo para patriotas', 50, 119.99, 1);
---insert into Products(Name, Description, Stock, Price, Category_id) 
---values ('Collar Firmeza Hombre', 'Presentativo para varones firmes', 5, 465.99, 1);
---insert into Products(Name, Description, Stock, Price, Category_id) 
---values ('Pulsera Confianza Hombre', 'Presentativo para varones confiados', 20, 380.00, 1);
---insert into Products(Name, Description, Stock, Price, Category_id) 
---values ('Anillo Equilibrio Hombre', 'Presentativo para varones equilibrados', 30, 340.00, 1);
---insert into Products(Name, Description, Stock, Price, Category_id) 
---values ('Anillo Fe Hombre', 'Presentativo para varones con fe', 15, 360.00, 1);
---insert into Products(Name, Description, Stock, Price, Category_id) 
---values ('Collar Equilibrio Hombre', 'Presentativo para varones equilibrados', 10, 695.00, 1);
---insert into Products(Name, Description, Stock, Price, Category_id) 
---values ('Pulsera Libertad Hombre', 'Presentativo para varones libres', 20, 210.00, 1);
---insert into Products(Name, Description, Stock, Price, Category_id) 
---values ('Collar Infinito Hombre', 'Presentativo para varones infinitos', 5, 885.00, 1);
+insert into Products(Id, Name, Description, Stock, Price, Category_id) 
+values (NEWID(), 'Llavero San Judas', 'Presentativo para religiosos', 10, 159.99, 1);
+insert into Products(Id, Name, Description, Stock, Price, Category_id) 
+values (NEWID(), 'Llavero Señor de los Milagros', 'Presentativo para religiosos', 20, 189.99, 1);
+insert into Products(Id, Name, Description, Stock, Price, Category_id) 
+values (NEWID(), 'Llavero Escudo Nacional', 'Presentativo para patriotas', 50, 119.99, 1);
+insert into Products(Id, Name, Description, Stock, Price, Category_id) 
+values (NEWID(), 'Collar Firmeza Hombre', 'Presentativo para varones firmes', 5, 465.99, 1);
+insert into Products(Id, Name, Description, Stock, Price, Category_id) 
+values (NEWID(), 'Pulsera Confianza Hombre', 'Presentativo para varones confiados', 20, 380.00, 1);
+insert into Products(Id, Name, Description, Stock, Price, Category_id) 
+values (NEWID(), 'Anillo Equilibrio Hombre', 'Presentativo para varones equilibrados', 30, 340.00, 1);
+insert into Products(Id, Name, Description, Stock, Price, Category_id) 
+values (NEWID(), 'Anillo Fe Hombre', 'Presentativo para varones con fe', 15, 360.00, 1);
+insert into Products(Id, Name, Description, Stock, Price, Category_id) 
+values (NEWID(), 'Collar Equilibrio Hombre', 'Presentativo para varones equilibrados', 10, 695.00, 1);
+insert into Products(Id, Name, Description, Stock, Price, Category_id) 
+values (NEWID(), 'Pulsera Libertad Hombre', 'Presentativo para varones libres', 20, 210.00, 1);
+insert into Products(Id, Name, Description, Stock, Price, Category_id) 
+values (NEWID(), 'Collar Infinito Hombre', 'Presentativo para varones infinitos', 5, 885.00, 1);
 
 select * from Products;
 

@@ -9,6 +9,11 @@ namespace Joyeria.Data
         {
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            //optionsBuilder.UseLazyLoadingProxies();
+        }
+
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
     }

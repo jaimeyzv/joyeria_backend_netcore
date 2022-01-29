@@ -19,5 +19,11 @@ namespace Joyeria.Data.Repositories
         {
             return await this._dbContext.Categories.ToListAsync();
         }
+
+        public async Task<Category> GetCategoryByIdAsync(int id)
+        {
+            var category = await _dbContext.Categories.FindAsync(id);
+            return category;
+        }
     }
 }

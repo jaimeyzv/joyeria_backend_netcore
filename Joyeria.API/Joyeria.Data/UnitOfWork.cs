@@ -18,7 +18,7 @@ namespace Joyeria.Data
 
         public IProductRepository Products => _productRepository = _productRepository ?? new ProductRepository(this._dbContext);
         public ICategoryRepository Categories => _categoryRepository = _categoryRepository ?? new CategoryRepository(this._dbContext);
-        public async Task<int> CommitAsync()
+        public async Task<int> SaveChangesAsync()
         {
             return await _dbContext.SaveChangesAsync();
         }
