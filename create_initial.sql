@@ -16,7 +16,7 @@ go
 
 insert into Categories(Name) values ('Baby Lover');
 insert into Categories(Name) values ('Peru Lover');
-insert into Categories(Name) values ('Aniaml Lover');
+insert into Categories(Name) values ('Animal Lover');
 
 select * from Categories;
 
@@ -56,11 +56,20 @@ insert into Products(Id, Name, Description, Stock, Price, Category_id)
 values (NEWID(), 'Collar Infinito Hombre', 'Presentativo para varones infinitos', 5, 885.00, 1);
 
 select * from Products;
+create table ImageProduct(
+Id			int identity primary key not null,
+Name		varchar(300) not null,
+Link		varchar (500) not null,
+Product_id	UNIQUEIDENTIFIER
+foreign key (Product_id) references Products(Id)
+)
+
+
 
 create table UserTypes
 (
 	Id			int identity primary key not null,
-	Name		varchar(100) not null,
+	Name		varchar(100) not null
 )
 go
 
@@ -100,7 +109,7 @@ create table Users
 	foreign key (DocumentTypeId) references DocumentTypes(Id)
 )
 go
-
+insert into Users(Name,LastName,DocumentNumber,Email,Password,Address,Cellphone,UserTypeId,DocumentTypeId) values ('Jorge','Perez','12345678','jperez@gmail.com','123456','Av.Peru 123','991458310',1,1);
 select * from Users;
 
 create table OrderStatus

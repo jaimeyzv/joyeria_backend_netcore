@@ -8,6 +8,7 @@ namespace Joyeria.Core
     {
         IProductRepository Products { get; }
         ICategoryRepository Categories { get; }
+        IUserRepository Users { get; }
         Task<int> SaveChangesAsync();
     }
 }

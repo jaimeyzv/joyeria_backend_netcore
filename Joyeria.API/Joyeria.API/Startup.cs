@@ -34,6 +34,7 @@ namespace Joyeria.API
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IUserService, UserService>();
 
             services.AddDbContext<JoyeriaDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("JoyeriaDb")));
