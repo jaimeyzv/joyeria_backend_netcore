@@ -15,6 +15,8 @@ namespace Joyeria.API
 {
     public class Startup
     {
+        readonly string AllowSpecificOrigins = "_allowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,6 +27,18 @@ namespace Joyeria.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: AllowSpecificOrigins,
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                        .SetIsOriginAllowed((host) => true)
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
+
             //services.AddControllers();
             services.AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
@@ -50,7 +64,9 @@ namespace Joyeria.API
 
             app.UseHttpsRedirection();
 
-            app.UseRouting();            
+            app.UseRouting();
+
+            app.UseCors(x => x.AllowAnyMethod().AllowAnyHeader().SetIsOriginAllowed(origin => true).AllowCredentials());
 
             app.UseAuthorization();
 
