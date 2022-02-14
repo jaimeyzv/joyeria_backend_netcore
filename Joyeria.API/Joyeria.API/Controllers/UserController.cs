@@ -1,16 +1,16 @@
 ﻿using Joyeria.API.ViewModels;
-using Joyeria.Core.Models;
+using  Models;
 using Joyeria.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Joyeria.Core.Models;
 namespace Joyeria.API.Controllers
 {
     
-    [Route("api/[controller]")]
+    [Route("api/user")]
     [ApiController]
     public class UserController: ControllerBase
     {
@@ -20,7 +20,7 @@ namespace Joyeria.API.Controllers
         {
             _userService = userService;
         }
-        
+        [Route("list")]
         [HttpGet]
         public async   Task<IActionResult> GetUsers() 
         {
@@ -33,7 +33,8 @@ namespace Joyeria.API.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
-        [HttpGet("{id:int}")]
+        [Route("list/{id:int}")]
+        [HttpGet]
         public async Task<IActionResult> GetUserById([FromRoute]int id)
         {
             try
@@ -47,9 +48,8 @@ namespace Joyeria.API.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
-
-
-
+  
+        [Route("create")]
         [HttpPost]
         public async  Task<IActionResult> Create([FromBody] UserVM user)
         {

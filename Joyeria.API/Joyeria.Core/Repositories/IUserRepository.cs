@@ -1,6 +1,7 @@
-﻿using Joyeria.Core.Models;
+﻿using Models;
 using System;
 using System.Collections.Generic;
+using Joyeria.Core.Models;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace Joyeria.Core.Repositories
     {
         Task<IEnumerable<User>> GetUsersAsync();
         Task<User> GetUserByIdAsync(int id);
+        Task<BaseResponse> GetUserbyEmailAsync(Login login);
         Task<User> CreateAsync(User createToUser);
     }
 }

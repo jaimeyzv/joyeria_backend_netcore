@@ -1,11 +1,12 @@
 ﻿using Joyeria.Core;
-using Joyeria.Core.Models;
+using  Models;
 using Joyeria.Core.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Joyeria.Core.Models;
 
 namespace Joyeria.Services.Services
 {
@@ -35,6 +36,11 @@ namespace Joyeria.Services.Services
         public async Task<User> GetUserByIdAsync(int id)
         {
             return await _unitOfWork.Users.GetUserByIdAsync(id);
+        }
+
+        public async Task<BaseResponse> GetUserbyEmailAsync(Login login)
+        {
+            return await _unitOfWork.Users.GetUserbyEmailAsync(login);
         }
     }
 }

@@ -1,8 +1,9 @@
-﻿using Joyeria.Core.Models;
+﻿using  Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Joyeria.Core.Models;
 using System.Threading.Tasks;
 
 namespace Joyeria.Core.Services
@@ -10,7 +11,9 @@ namespace Joyeria.Core.Services
    public interface IUserService
     {
         Task<IEnumerable<User>> GetUsersAsync();
+
         Task<User> GetUserByIdAsync(int id);
+       
         Task<User> CreateAsync(User createToUser);
 
     }
