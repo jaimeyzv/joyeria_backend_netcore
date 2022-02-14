@@ -1,12 +1,8 @@
 ﻿using Joyeria.Core;
-using  Models;
-using Joyeria.Core.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Joyeria.Core.Models;
+using Joyeria.Core.Services;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Joyeria.Services.Services
 {
@@ -37,7 +33,5 @@ namespace Joyeria.Services.Services
         {
             return await _unitOfWork.Users.GetUserByIdAsync(id);
         }
-
-   
     }
 }
