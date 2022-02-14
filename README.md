@@ -13,3 +13,4 @@ To get more help on NETCORE 5 go check out the [What's new in .NET 5](https://do
 ## Members
 
 Jaime Yampiere Zamora Vasquez - U201625648
+Yerson
