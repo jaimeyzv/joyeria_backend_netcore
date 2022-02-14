@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace Joyeria.API.Controllers
 {
-    [Produces("application/json")]
-    [Route("api/user")]
+    
+    [Route("api/[controller]")]
     [ApiController]
     public class UserController: ControllerBase
     {
@@ -22,21 +22,36 @@ namespace Joyeria.API.Controllers
         }
         
         [HttpGet]
-        [Route("list")]
-        public async   Task<IActionResult> GetUser() 
+        public async   Task<IActionResult> GetUsers() 
         {
             try
             {
-                var users = await this._userService.GetUserAsync();
+                var users = await this._userService.GetUsersAsync();
                 return Ok(users);
             }
             catch(Exception ex) {
                 return BadRequest(new { message = ex.Message });
             }
         }
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetUserById([FromRoute]int id)
+        {
+            try
+            {
+                var user = await this._userService.GetUserByIdAsync(id);
+                if (user == null) return BadRequest($"Usuario con id{id} no existe");
+                return Ok(user);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+
+
         [HttpPost]
-        [Route("create")]
-        public async  Task<IActionResult> create([FromBody] UserVM user)
+        public async  Task<IActionResult> Create([FromBody] UserVM user)
         {
             try
             {

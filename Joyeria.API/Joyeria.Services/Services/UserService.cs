@@ -26,10 +26,15 @@ namespace Joyeria.Services.Services
            
         }
 
-        public async Task<IEnumerable<User>> GetUserAsync()
+        public async Task<IEnumerable<User>> GetUsersAsync()
         {
-            return await this._unitOfWork.Users.GetUserAsync();
+            return await this._unitOfWork.Users.GetUsersAsync();
            
+        }
+
+        public async Task<User> GetUserByIdAsync(int id)
+        {
+            return await _unitOfWork.Users.GetUserByIdAsync(id);
         }
     }
 }

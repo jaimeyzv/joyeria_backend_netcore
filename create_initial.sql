@@ -63,7 +63,10 @@ Link		varchar (500) not null,
 Product_id	UNIQUEIDENTIFIER
 foreign key (Product_id) references Products(Id)
 )
-
+create proc usp_listar_products
+as
+select* from Products;
+go
 
 
 create table UserTypes
@@ -109,8 +112,22 @@ create table Users
 	foreign key (DocumentTypeId) references DocumentTypes(Id)
 )
 go
+create proc usp_user_login
+@email varchar(256),@pass varchar(20)
+as
+select Id, Name,LastName,DocumentNumber,Email,Password,Address,Cellphone,UserTypeId,DocumentTypeId
+ from Users where Email =@email and Password=@pass
+go
+
 insert into Users(Name,LastName,DocumentNumber,Email,Password,Address,Cellphone,UserTypeId,DocumentTypeId) values ('Jorge','Perez','12345678','jperez@gmail.com','123456','Av.Peru 123','991458310',1,1);
+
+insert into Users(Name,LastName,DocumentNumber,Email,Password,Address,Cellphone,UserTypeId,DocumentTypeId) values ('Pedro','Perez','12345678','pperez@gmail.com','654321','Av.Peru 123','991458310',1,1);
+
 select * from Users;
+
+
+
+
 
 create table OrderStatus
 (
