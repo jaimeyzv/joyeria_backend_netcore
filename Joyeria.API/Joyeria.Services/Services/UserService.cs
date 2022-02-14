@@ -38,9 +38,6 @@ namespace Joyeria.Services.Services
             return await _unitOfWork.Users.GetUserByIdAsync(id);
         }
 
-        public async Task<BaseResponse> GetUserbyEmailAsync(Login login)
-        {
-            return await _unitOfWork.Users.GetUserbyEmailAsync(login);
-        }
+   
     }
 }

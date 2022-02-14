@@ -12,7 +12,7 @@ namespace Joyeria.Core.Repositories
     {
         Task<IEnumerable<User>> GetUsersAsync();
         Task<User> GetUserByIdAsync(int id);
-        Task<BaseResponse> GetUserbyEmailAsync(Login login);
+      
         Task<User> CreateAsync(User createToUser);
     }
 }

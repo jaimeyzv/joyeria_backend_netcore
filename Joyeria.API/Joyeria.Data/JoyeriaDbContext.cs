@@ -1,6 +1,6 @@
 ﻿using Joyeria.Core.Models;
 using Microsoft.EntityFrameworkCore;
-using Models;
+
 using System.Data.SqlTypes;
 
 namespace Joyeria.Data
