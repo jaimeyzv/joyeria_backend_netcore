@@ -9,7 +9,8 @@ namespace Joyeria.Core.Services
 {
    public interface IUserService
     {
-        Task<IEnumerable<User>> GetUserAsync();
+        Task<IEnumerable<User>> GetUsersAsync();
+        Task<User> GetUserByIdAsync(int id);
         Task<User> CreateAsync(User createToUser);
 
     }

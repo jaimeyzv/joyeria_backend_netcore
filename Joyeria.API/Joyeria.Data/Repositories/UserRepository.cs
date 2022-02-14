@@ -24,10 +24,16 @@ namespace Joyeria.Data.Repositories
             return createToUser;
         }
 
-        public async Task<IEnumerable<User>> GetUserAsync()
+        public async Task<IEnumerable<User>> GetUsersAsync()
         {
             return await this._dbContext.Users.ToListAsync();
            
+        }
+
+        public async Task<User> GetUserByIdAsync(int id)
+        {
+            var user = await _dbContext.Users.FindAsync(id);
+            return user;
         }
     }
 }
