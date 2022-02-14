@@ -1,16 +1,13 @@
 ﻿using Joyeria.API.ViewModels;
-using  Models;
+using Joyeria.Core.Models;
 using Joyeria.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Joyeria.Core.Models;
 namespace Joyeria.API.Controllers
 {
-    
-    [Route("api/user")]
+
+    [Route("api/[controller]")]
     [ApiController]
     public class UserController: ControllerBase
     {
@@ -20,7 +17,7 @@ namespace Joyeria.API.Controllers
         {
             _userService = userService;
         }
-        [Route("list")]
+        
         [HttpGet]
         public async   Task<IActionResult> GetUsers() 
         {
@@ -33,7 +30,7 @@ namespace Joyeria.API.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
-        [Route("list/{id:int}")]
+        [Route("{id:int}")]
         [HttpGet]
         public async Task<IActionResult> GetUserById([FromRoute]int id)
         {
@@ -49,7 +46,7 @@ namespace Joyeria.API.Controllers
             }
         }
   
-        [Route("create")]
+        
         [HttpPost]
         public async  Task<IActionResult> Create([FromBody] UserVM user)
         {
@@ -77,9 +74,31 @@ namespace Joyeria.API.Controllers
             }
         }
 
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> Update([FromBody] UserVM user, [FromRoute] int id)
+        {
+            try
+            {
+                if (!ModelState.IsValid) return BadRequest($" user no es valido");
+                var userFound = await this._userService.GetUserByIdAsync(id);
+                if (userFound == null) return BadRequest($"user no es valido");
+                userFound.Name = user.Name;
+                userFound.LastName = user.LastName;
+                userFound.Address = user.Address;
+                userFound.Cellphone = user.Cellphone;
+                userFound.DocumentTypeId = user.DocumentTypeId;
+                userFound.DocumentNumber = user.DocumentNumber;
+                userFound.Password = user.Password;
+                userFound.Email = user.Email;
+                var userUpdated = await _userService.UpdateAsync(userFound);
+                return Ok(userUpdated);
+               
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
 
-
-
-
+            }
+        }
     }
 }

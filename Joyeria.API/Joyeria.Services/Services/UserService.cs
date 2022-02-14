@@ -19,19 +19,24 @@ namespace Joyeria.Services.Services
         {
             await _unitOfWork.Users.CreateAsync(createToUser);
             await _unitOfWork.SaveChangesAsync();
-            return createToUser;
-           
+            return createToUser;           
         }
 
         public async Task<IEnumerable<User>> GetUsersAsync()
         {
-            return await this._unitOfWork.Users.GetUsersAsync();
-           
+            return await this._unitOfWork.Users.GetUsersAsync();           
         }
 
         public async Task<User> GetUserByIdAsync(int id)
         {
             return await _unitOfWork.Users.GetUserByIdAsync(id);
+        }
+
+        public async Task<User> UpdateAsync(User userToUpdate)
+        {
+            await _unitOfWork.Users.UpdateAsync(userToUpdate);
+            await _unitOfWork.SaveChangesAsync();
+            return userToUpdate;            
         }
     }
 }
