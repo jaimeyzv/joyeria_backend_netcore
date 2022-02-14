@@ -1,4 +1,4 @@
-﻿using Models;
+﻿
 using System;
 using System.Collections.Generic;
 using Joyeria.Core.Models;
@@ -14,5 +14,6 @@ namespace Joyeria.Core.Repositories
         Task<User> GetUserByIdAsync(int id);
       
         Task<User> CreateAsync(User createToUser);
+        Task<User> UpdateAsync(User userToUpdate);
     }
 }

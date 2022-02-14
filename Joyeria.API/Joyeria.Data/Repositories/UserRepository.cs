@@ -43,6 +43,10 @@ namespace Joyeria.Data.Repositories
             return user;
         }
 
- 
+        public async Task<User> UpdateAsync(User userToUpdate)
+        {
+            _dbContext.Users.Update(userToUpdate);
+            return await Task.FromResult(userToUpdate);
+        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Joyeria.Core;
-using  Models;
+
 using Joyeria.Core.Services;
 using System;
 using System.Collections.Generic;
@@ -38,6 +38,12 @@ namespace Joyeria.Services.Services
             return await _unitOfWork.Users.GetUserByIdAsync(id);
         }
 
-   
+        public async Task<User> UpdateAsync(User userToUpdate)
+        {
+            await _unitOfWork.Users.UpdateAsync(userToUpdate);
+            await _unitOfWork.SaveChangesAsync();
+            return userToUpdate;
+            
+        }
     }
 }

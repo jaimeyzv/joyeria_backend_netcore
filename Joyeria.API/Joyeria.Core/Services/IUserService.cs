@@ -16,5 +16,6 @@ namespace Joyeria.Core.Services
        
         Task<User> CreateAsync(User createToUser);
 
+        Task<User> UpdateAsync(User userToUpdate);
     }
 }
