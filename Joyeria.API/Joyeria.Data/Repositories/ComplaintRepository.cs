@@ -1,23 +1,21 @@
 ﻿using Joyeria.Core.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Joyeria.Data.Repositories
 {
-    public class ComplaintsRepository : IComplaintsRepository
+    public class ComplaintRepository : IComplaintRepository
     {
         private readonly JoyeriaDbContext _dbContext;
 
-        public ComplaintsRepository(JoyeriaDbContext dbContext)
+        public ComplaintRepository(JoyeriaDbContext dbContext)
         {
             this._dbContext = dbContext;
         }
-        public async Task<Complaints> CreateAsync(Complaints createToComplaints)
+
+        public async Task<Complaint> CreateAsync(Complaint createToComplaints)
 
         {
             await _dbContext.Complaints.AddAsync(createToComplaints);
@@ -32,14 +30,12 @@ namespace Joyeria.Data.Repositories
            
         }
 
-    
-
-        public async Task<IEnumerable<Complaints>> GetComplaintssAsync()
+        public async Task<IEnumerable<Complaint>> GetComplaintssAsync()
         {
             return await this._dbContext.Complaints.ToListAsync();
         }
 
-        public async Task<Complaints> GetComplaintstByIdAsync(int id)
+        public async Task<Complaint> GetComplaintstByIdAsync(int id)
         {
              var complaints= await this._dbContext.Complaints.FindAsync(id);
             return complaints;

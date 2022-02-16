@@ -53,7 +53,7 @@ namespace Joyeria.API.Controllers
                 if (!ModelState.IsValid) return BadRequest($"  Hoja de Reclamacion  no es valido");
 
 
-                var complaintsToCreate = new Complaints()
+                var complaintsToCreate = new Complaint()
                 {
                     Id = complaints.Id,
                     Datec = complaints.Datec,

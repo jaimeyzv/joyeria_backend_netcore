@@ -1,7 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
-using Joyeria.Core.Models;
+﻿using Joyeria.Core.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

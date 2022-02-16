@@ -17,7 +17,7 @@ namespace Joyeria.Services.Services
         {
             this._unitOfWork = unitOfWork;
         }
-        public async Task<Complaints> CreateAsync(Complaints createToComplaints)
+        public async Task<Complaint> CreateAsync(Complaint createToComplaints)
          
         {
           await _unitOfWork.Complaints.CreateAsync(createToComplaints);
@@ -31,12 +31,12 @@ namespace Joyeria.Services.Services
             await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Complaints>> GetComplaintsAsync()
+        public async Task<IEnumerable<Complaint>> GetComplaintsAsync()
         {
             return await _unitOfWork.Complaints.GetComplaintssAsync();
         }
 
-        public async Task<Complaints> GetComplaintstByIdAsync(int id)
+        public async Task<Complaint> GetComplaintstByIdAsync(int id)
         {
             return await _unitOfWork.Complaints.GetComplaintstByIdAsync(id);
         }
