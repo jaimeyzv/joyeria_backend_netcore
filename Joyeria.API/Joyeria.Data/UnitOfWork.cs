@@ -11,6 +11,7 @@ namespace Joyeria.Data
         private IProductRepository _productRepository;
         private ICategoryRepository _categoryRepository;
         private IUserRepository _userRepository;
+        private IComplaintsRepository _complaintsRepository;
         public UnitOfWork(JoyeriaDbContext dbContext)
         {
             this._dbContext = dbContext;
@@ -21,6 +22,8 @@ namespace Joyeria.Data
 
 
         public IUserRepository Users => _userRepository = _userRepository ?? new UserRepository(this._dbContext);
+
+        public IComplaintsRepository Complaints => _complaintsRepository ?? new ComplaintsRepository(this._dbContext); 
 
         public async Task<int> SaveChangesAsync()
         {

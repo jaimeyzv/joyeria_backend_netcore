@@ -1,6 +1,6 @@
 use master
 go
-
+  
 create database JoyeriaDB;
 go
 
@@ -95,12 +95,13 @@ insert into DocumentTypes(Name) values ('Pasaporte');
 
 select * from DocumentTypes;
 
+
 create table Users
 (
 	Id				int identity primary key not null,
 	Name			varchar(100) not null,
 	LastName		varchar(100) not null,
-	DocumentNumber	varchar(11) not null,
+	DocumentNumber	varchar(13) not null,
 	Email			varchar(256) not null,
 	Password		varchar(20) not null,
 	Address			varchar(150),
@@ -112,6 +113,7 @@ create table Users
 	foreign key (DocumentTypeId) references DocumentTypes(Id)
 )
 go
+select * from Users;
 create proc usp_user_login
 @email varchar(256),@pass varchar(20)
 as
@@ -169,3 +171,18 @@ create table OrderItems
 );
 
 select * from OrderItems;
+create table Complaints(
+	Id	int identity primary key not null,
+	Datec datetime not null,
+	Name varchar(150) not null,
+	Address varchar(150) not null,
+	Email	varchar(256) not null,
+	Cellphone varchar(15) not null,
+	Repre varchar(100),
+	Typep int not null,
+	Price decimal(18, 2) ,
+	Descp varchar(520) not null,
+	Typc int not null,
+	Descc varchar(520) not null,
+	StatusC int not null
+)

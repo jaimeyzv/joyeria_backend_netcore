@@ -1,6 +1,6 @@
 ﻿using Joyeria.Core.Models;
 using Microsoft.EntityFrameworkCore;
-
+using Models;
 using System.Data.SqlTypes;
 
 namespace Joyeria.Data
@@ -19,6 +19,7 @@ namespace Joyeria.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<User> Users{ get; set; }
+        public DbSet<Complaints> Complaints { get; set; }
         
     }
 }
