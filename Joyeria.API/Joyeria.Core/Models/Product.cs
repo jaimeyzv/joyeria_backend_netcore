@@ -10,6 +10,7 @@ namespace Joyeria.Core.Models
         public string Description { get; set; }
         public int Stock { get; set; }
         public decimal Price { get; set; }
+        public string Image { get; set; }
 
         [Column("Category_id")]
         public int CategoryId { get; set; }
