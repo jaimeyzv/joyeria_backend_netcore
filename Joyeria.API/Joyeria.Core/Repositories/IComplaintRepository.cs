@@ -6,7 +6,7 @@ namespace Joyeria.Core.Repositories
 {
     public interface IComplaintRepository
     {
-        Task<IEnumerable<Complaint>> GetComplaintssAsync();
+        Task<IEnumerable<Complaint>> GetComplaintsAsync();
         Task<Complaint> GetComplaintstByIdAsync(int id);
         Task<Complaint> CreateAsync(Complaint createToComplaints);
         Task DeleteAsync(int id);

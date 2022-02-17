@@ -10,17 +10,24 @@ using System.Threading.Tasks;
 namespace Joyeria.API.Controllers
 {
     [Route("api/[controller]")]
-    public class ComplaintsController : Controller
+    [ApiController]
+    public class ComplaintController : ControllerBase
     {
-        private readonly IComplaintsService _complaintsService;
+        private readonly IComplaintService _complaintService;
+
+        public ComplaintController(IComplaintService complaintService)
+        {
+            _complaintService = complaintService;
+        }
+
 
         [HttpGet]
         public async Task<IActionResult> GetComplaints()
         {
             try
             {
-                var products = await this._complaintsService.GetComplaintsAsync();
-                return Ok(products);
+                var complaint = await this._complaintService.GetComplaintsAsync();
+                return Ok(complaint);
             }
             catch (Exception ex)
             {
@@ -32,7 +39,7 @@ namespace Joyeria.API.Controllers
         {
             try
             {
-                var product = await this._complaintsService.GetComplaintstByIdAsync(id);
+                var product = await this._complaintService.GetComplaintstByIdAsync(id);
                 if (product == null) return BadRequest($"Hoja de Reclamacion con id {id} no existe");
 
                 return Ok(product);
@@ -46,7 +53,7 @@ namespace Joyeria.API.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] ComplaintsVM complaints)
+        public async Task<IActionResult> Create([FromBody] ComplaintVM complaint)
         {
             try
             {
@@ -55,23 +62,25 @@ namespace Joyeria.API.Controllers
 
                 var complaintsToCreate = new Complaint()
                 {
-                    Id = complaints.Id,
-                    Datec = complaints.Datec,
-                    Name = complaints.Name,
-                    Address = complaints.Address,
-                    Email = complaints.Email,
-                    Cellphone = complaints.Cellphone,
-                    Repre = complaints.Repre,
-                    Typep = complaints.Typep,
-                    Price = complaints.Price,
-                    Typc = complaints.Typc,
-                    Descc = complaints.Descc,
-                    StatusC =1
+                    Datec = DateTime.Now,
+                    Name = complaint.Name,
+                    Address = complaint.Address,
+                    Ndoc = complaint.Ndoc,
+                    Email = complaint.Email,
+                    Cellphone = complaint.Cellphone,
+                    Repre = complaint.Repre,
+                    Typep = complaint.Typep,
+                    Price = complaint.Price,
+                    Descp = complaint.Descp,
+                    Typc = complaint.Typc,
+                    Descc = complaint.Descc,
+                    Pedic = complaint.Pedic
+
                 };
 
-                var productCreated = await _complaintsService.CreateAsync(complaintsToCreate);
+                var complaintCreated = await _complaintService.CreateAsync(complaintsToCreate);
 
-                return Ok(productCreated);
+                return Ok(complaintCreated);
             }
             catch (Exception ex)
             {
@@ -85,9 +94,9 @@ namespace Joyeria.API.Controllers
         {
             try
             {
-                var product = await this._complaintsService.GetComplaintstByIdAsync(id);
+                var product = await this._complaintService.GetComplaintstByIdAsync(id);
                 if (product == null) return BadRequest($"Hoja de Reclamacion  con id {id} no existe");
-                await this._complaintsService.DeleteAsync(id);
+                await this._complaintService.DeleteAsync(id);
 
                 return Ok();
             }

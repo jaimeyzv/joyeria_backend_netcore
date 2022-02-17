@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Joyeria.API.ViewModels
 {
-    public class ComplaintsVM
+    public class ComplaintVM
     {
         public int Id { get; set; }
         [Required]
@@ -16,19 +16,25 @@ namespace Joyeria.API.ViewModels
         [Required]
         public string Address { get; set; }
         [Required]
+        public string Ndoc { get; set; }
+        [Required]
         public string Email { get; set; }
         [Required]
         public string Cellphone { get; set; }
         
         public string Repre { get; set; }
         [Required]
-        public int Typep { get; set; }
-        public Decimal Price { get; set; }
+        public string Typep { get; set; }
+        public string Price { get; set; }
         [Required]
-        public int Typc { get; set; }
+        public string Descp { get; set; }
+        [Required]
+        public string Typc { get; set; }
         [Required]
         public string Descc { get; set; }
         [Required]
+        public string Pedic { get; set; }
+        
         public int StatusC { get; set; }
     }
 }

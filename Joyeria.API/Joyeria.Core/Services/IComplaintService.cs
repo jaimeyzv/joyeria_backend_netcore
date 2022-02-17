@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Joyeria.Core.Services
 {
-    public interface IComplaintsService
+    public interface IComplaintService
     {
         Task<IEnumerable<Complaint>> GetComplaintsAsync();
         Task<Complaint> GetComplaintstByIdAsync(int id);

@@ -18,26 +18,26 @@ namespace Joyeria.Data.Repositories
         public async Task<Complaint> CreateAsync(Complaint createToComplaints)
 
         {
-            await _dbContext.Complaints.AddAsync(createToComplaints);
-            await _dbContext.SaveChangesAsync();
+            await _dbContext.Complaint.AddAsync(createToComplaints);
+       
             return createToComplaints;
         }
 
         public async Task DeleteAsync(int id)
         {
-            var complaints = await _dbContext.Complaints.FindAsync(id);
-            _dbContext.Complaints.Remove(complaints);
+            var complaints = await _dbContext.Complaint.FindAsync(id);
+            _dbContext.Complaint.Remove(complaints);
            
         }
 
-        public async Task<IEnumerable<Complaint>> GetComplaintssAsync()
+        public async Task<IEnumerable<Complaint>> GetComplaintsAsync()
         {
-            return await this._dbContext.Complaints.ToListAsync();
+            return await this._dbContext.Complaint.ToListAsync();
         }
 
         public async Task<Complaint> GetComplaintstByIdAsync(int id)
         {
-             var complaints= await this._dbContext.Complaints.FindAsync(id);
+             var complaints= await this._dbContext.Complaint.FindAsync(id);
             return complaints;
         }
     }

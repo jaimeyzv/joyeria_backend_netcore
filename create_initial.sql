@@ -171,18 +171,25 @@ create table OrderItems
 );
 
 select * from OrderItems;
-create table Complaints(
+create table Complaint(
 	Id	int identity primary key not null,
-	Datec datetime not null,
+	Datec datetime  not null,
 	Name varchar(150) not null,
 	Address varchar(150) not null,
+	Ndoc varchar(13) not null,
 	Email	varchar(256) not null,
 	Cellphone varchar(15) not null,
-	Repre varchar(100),
-	Typep int not null,
-	Price decimal(18, 2) ,
+	Repre varchar(100) default('No parent'),
+	Typep varchar(20) not null,
+	Price varchar(300) default('1'),
 	Descp varchar(520) not null,
-	Typc int not null,
+	Typc varchar(20) not null,
 	Descc varchar(520) not null,
-	StatusC int not null
+	Pedic varchar(520) not null,
+	StatusC int default(1) 
 )
+drop table Complaint;
+insert into Complaint(Datec,Name,Address,Ndoc,Email,Cellphone,Typep,Price,Descp,Typc,Descc,Pedic)
+values (GETDATE(),'Alfonso Reyes','Los yupanqui 214','12345678','alfreyh@gmail.com','992563710','1','200','Descripcion1','1','Descripcion2','Pedido');
+select * from Complaint
+select * from Users
