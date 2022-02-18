@@ -96,6 +96,8 @@ namespace Joyeria.API.Controllers
             }
         }
 
+
+
         [HttpPut("{id:Guid}")]
         public async Task<IActionResult> Update([FromBody] ProductVM product, [FromRoute] Guid id)
         {

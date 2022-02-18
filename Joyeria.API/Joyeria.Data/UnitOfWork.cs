@@ -12,7 +12,7 @@ namespace Joyeria.Data
         private ICategoryRepository _categoryRepository;
         private IUserRepository _userRepository;
         private IComplaintRepository _complaintRepository;
-
+        private IOrderRepository _orderRepository;
         public UnitOfWork(JoyeriaDbContext dbContext)
         {
             this._dbContext = dbContext;
@@ -22,6 +22,8 @@ namespace Joyeria.Data
         public ICategoryRepository Categories => _categoryRepository = _categoryRepository ?? new CategoryRepository(this._dbContext);
         public IUserRepository Users => _userRepository = _userRepository ?? new UserRepository(this._dbContext);
         public IComplaintRepository Complaint => _complaintRepository = _complaintRepository ?? new ComplaintRepository(this._dbContext);
+
+        public IOrderRepository Orders => _orderRepository = _orderRepository ?? new OrderRepository(this._dbContext);
 
         public async Task<int> SaveChangesAsync()
         {
