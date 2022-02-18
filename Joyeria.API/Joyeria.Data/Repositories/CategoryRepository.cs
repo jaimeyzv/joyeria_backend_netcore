@@ -15,6 +15,12 @@ namespace Joyeria.Data.Repositories
             this._dbContext = dbContext;
         }
 
+        public async Task<Category> CreateAsync(Category categoryToCreate)
+        {
+            await _dbContext.Categories.AddAsync(categoryToCreate);
+            return categoryToCreate;
+        }
+
         public async Task<IEnumerable<Category>> GetCategoriesAsync()
         {
             return await this._dbContext.Categories.ToListAsync();
@@ -24,6 +30,12 @@ namespace Joyeria.Data.Repositories
         {
             var category = await _dbContext.Categories.FindAsync(id);
             return category;
+        }
+
+        public  async Task<Category> UpdateAsync(Category categoryToUpdate)
+        {
+            _dbContext.Categories.Update(categoryToUpdate);
+            return await Task.FromResult(categoryToUpdate);
         }
     }
 }

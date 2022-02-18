@@ -15,6 +15,14 @@ namespace Joyeria.Services.Services
             this._unitOfWork = unitOfWork;
         }
 
+        public async Task<Category> CreateAsync(Category categoryToCreate)
+        {
+            await _unitOfWork.Categories.CreateAsync(categoryToCreate);
+            await _unitOfWork.SaveChangesAsync();
+
+            return categoryToCreate;
+        }
+
         public async Task<IEnumerable<Category>> GetCategoriesAsync()
         {
             return await this._unitOfWork.Categories.GetCategoriesAsync();
@@ -23,6 +31,13 @@ namespace Joyeria.Services.Services
         public async Task<Category> GetCategoryByIdAsync(int id)
         {
             return await _unitOfWork.Categories.GetCategoryByIdAsync(id);
+        }
+
+        public async Task<Category> UpdateAsync(Category categoryToUpdate)
+        {
+            await _unitOfWork.Categories.UpdateAsync(categoryToUpdate);
+            await _unitOfWork.SaveChangesAsync();
+            return categoryToUpdate;
         }
     }
 }

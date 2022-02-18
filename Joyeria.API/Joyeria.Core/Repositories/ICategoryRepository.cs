@@ -8,5 +8,7 @@ namespace Joyeria.Core.Repositories
     {
         Task<IEnumerable<Category>> GetCategoriesAsync();
         Task<Category> GetCategoryByIdAsync(int id);
+        Task<Category> CreateAsync(Category categoryToCreate);
+        Task<Category> UpdateAsync(Category categoryToUpdate);
     }
 }
