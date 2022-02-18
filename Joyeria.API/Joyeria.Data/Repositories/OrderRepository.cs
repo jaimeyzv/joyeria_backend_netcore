@@ -53,10 +53,22 @@ namespace Joyeria.Data.Repositories
             return await (from cab in  this._dbContext.Orders
                      join usuario in this._dbContext.Users
                      on cab.UserId equals usuario.Id
-                     group new {cab,usuario} by new {mes=cab.Date.Month,cab.Total,name=usuario.Name,usuario.LastName   } into gr
-                     select new ReporteVentas { cliente=gr.Key.name +"- "+gr.Key.LastName,mes=gr.Key.mes.ToString()
+                     group new {cab,usuario} by new {mes=cab.Date.Month,name=usuario.Name,usuario.LastName   } into gr
+                     select new ReporteVentas { cliente=gr.Key.name +"- "+gr.Key.LastName,mes= gr.Key.mes.ToString()
                      ,total=gr.Sum(ord=>ord.cab.Total)}).ToListAsync();
             
+        }
+        private string obtenerMes(int idMes)
+        {
+            switch (idMes)
+            {
+                case 1:
+                    return "Enero";
+                   
+                default:
+                    break;
+            }
+            return "";
         }
     }
 }
