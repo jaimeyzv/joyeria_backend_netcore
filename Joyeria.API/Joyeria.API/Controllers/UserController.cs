@@ -82,14 +82,21 @@ namespace Joyeria.API.Controllers
                 if (!ModelState.IsValid) return BadRequest($" user no es valido");
                 var userFound = await this._userService.GetUserByIdAsync(id);
                 if (userFound == null) return BadRequest($"user no es valido");
+                if(user.Name !=null)
                 userFound.Name = user.Name;
+                if (user.LastName != null)
                 userFound.LastName = user.LastName;
+                if(user.Address !=null)
                 userFound.Address = user.Address;
+                if (user.Cellphone != null)
                 userFound.Cellphone = user.Cellphone;
+                if (user.DocumentTypeId != 0)
                 userFound.DocumentTypeId = user.DocumentTypeId;
+                if(user.DocumentNumber !=null)
                 userFound.DocumentNumber = user.DocumentNumber;
+                if (user.Password != null)
                 userFound.Password = user.Password;
-                userFound.Email = user.Email;
+            
                 var userUpdated = await _userService.UpdateAsync(userFound);
                 return Ok(userUpdated);
                

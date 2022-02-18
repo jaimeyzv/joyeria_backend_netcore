@@ -74,7 +74,8 @@ namespace Joyeria.API.Controllers
                     Descp = complaint.Descp,
                     Typc = complaint.Typc,
                     Descc = complaint.Descc,
-                    Pedic = complaint.Pedic
+                    Pedic = complaint.Pedic,
+                    StatusC = 1
 
                 };
 
@@ -106,6 +107,28 @@ namespace Joyeria.API.Controllers
             }
         }
 
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> Update([FromBody] ComplaintVM complaint, [FromRoute] int id)
+        {
+            try
+            {
+                if (!ModelState.IsValid) return BadRequest($"Payload  Estado no es valido");
+
+                var complaintFound = await this._complaintService.GetComplaintstByIdAsync(id);
+                if (complaintFound == null) return BadRequest($"Complaint con id {id} no existe");
+                
+                complaintFound.StatusC = complaint.StatusC;
+             
+
+               var complaintUpdated = await _complaintService.UpdateAsync(complaintFound);
+
+                return Ok(complaintUpdated);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
 
 
 

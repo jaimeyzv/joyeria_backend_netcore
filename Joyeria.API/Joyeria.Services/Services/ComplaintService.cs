@@ -40,5 +40,13 @@ namespace Joyeria.Services.Services
         {
             return await _unitOfWork.Complaint.GetComplaintstByIdAsync(id);
         }
+
+        public async Task<Complaint> UpdateAsync(Complaint complaintToUpdate)
+        {
+            await _unitOfWork.Complaint.UpdateAsync(complaintToUpdate);
+            await _unitOfWork.SaveChangesAsync();
+
+            return complaintToUpdate;
+        }
     }
 }

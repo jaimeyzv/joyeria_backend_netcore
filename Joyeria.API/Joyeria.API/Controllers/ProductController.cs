@@ -122,5 +122,9 @@ namespace Joyeria.API.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+   
+    
+    
+    
     }
 }

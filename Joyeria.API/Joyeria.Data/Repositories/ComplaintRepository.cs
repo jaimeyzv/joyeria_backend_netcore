@@ -40,5 +40,11 @@ namespace Joyeria.Data.Repositories
              var complaints= await this._dbContext.Complaint.FindAsync(id);
             return complaints;
         }
+
+        public async Task<Complaint> UpdateAsync(Complaint complaintToUpdate)
+        {
+            _dbContext.Complaint.Update(complaintToUpdate);
+            return await Task.FromResult(complaintToUpdate);
+        }
     }
 }
