@@ -27,7 +27,7 @@ create table Products
 	Description varchar(500) not null,
 	Stock		int not null,
 	Price		decimal(18, 2) not null, -- SOLES
-	Image       varchar(100) null,
+	Image       varchar(100) default('https://m.media-amazon.com/images/I/61cW7jqHKrL._AC_SY500._SX._UX._SY._UY_.jpg') null,
 	Category_id int
 
 	foreign key (Category_id) references Categories(Id)
